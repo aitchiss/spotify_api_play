@@ -14,9 +14,16 @@ var getAlbumInfo = function(){
 
 var populatePage = function(albums){
   var displayDiv = document.querySelector('#albums')
+
   for (album of albums){
+    console.log(album)
+    var imageUrl = album.images[0].url
+
+    console.log('image', imageUrl)
+    
     //create a div
     var albumContainer = getAlbumContainer()
+    albumContainer.style.backgroundImage = "url(" + imageUrl + ")"
     //append the album details to it
     appendAlbumTitleInfo(albumContainer, album)
     appendAlbumArtistInfo(albumContainer, album)
