@@ -18,17 +18,24 @@ var populatePage = function(albums){
     //create a div
     var albumContainer = getAlbumContainer()
     //append the album details to it
+    appendAlbumTitleInfo(albumContainer, album)
     appendAlbumArtistInfo(albumContainer, album)
     //append the div to displayDiv
     displayDiv.appendChild(albumContainer)
   }
 }
 
+var appendAlbumTitleInfo = function(container, album){
+  var titleInfo = document.createElement('p')
+  titleInfo.innerText = 'title: ' + album.name
+  container.appendChild(titleInfo)
+}
+
 
 
 var appendAlbumArtistInfo = function(container, album){
   var artistInfo = document.createElement('p')
-  var artistString = ''
+  var artistString = 'artist: '
   if (album.artists.length > 1){
     for (artist of album.artists){
       artistString += artist.name + ', '

@@ -1,6 +1,22 @@
 main{
-  width: 300px;
-  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 40px;
+}
+
+#albums{
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.album-entry {
+  border: 1px solid black;
+  width: 200px;
+  margin: 20px;
+  padding: 10px;
 }
 
 input{
