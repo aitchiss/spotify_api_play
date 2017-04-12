@@ -14,11 +14,38 @@ main{
 
 .album-entry {
   border: 1px solid black;
+  position: relative;
   width: 200px;
   height: 200px;
   margin: 20px;
   padding: 10px;
   background-size: cover;
+}
+
+.album-entry .album-hover{
+  opacity: 0;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  color: red;
+  height: 100%;
+  width: 100%;
+  background-color: #008CBA;
+  position: absolute;
+}
+
+.album-entry:hover .album-hover {
+  opacity: 0.75;
+}
+
+.album-hover p {
+  color: white;
+  text-align: center;
+  margin-top: 50px;
+  font-size: 1.25em;
+  font-family: Futura;
+
 }
 
 input{

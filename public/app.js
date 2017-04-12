@@ -19,23 +19,37 @@ var populatePage = function(albums){
     console.log(album)
     var imageUrl = album.images[0].url
 
-    console.log('image', imageUrl)
-    
-    //create a div
     var albumContainer = getAlbumContainer()
     albumContainer.style.backgroundImage = "url(" + imageUrl + ")"
     //append the album details to it
-    appendAlbumTitleInfo(albumContainer, album)
-    appendAlbumArtistInfo(albumContainer, album)
+    appendHoverInfo(albumContainer, album)
+    // appendAlbumTitleInfo(albumContainer, album)
+    // appendAlbumArtistInfo(albumContainer, album)
     //append the div to displayDiv
     displayDiv.appendChild(albumContainer)
   }
 }
 
+var appendHoverInfo = function(container, album){
+  var hoverDiv = document.createElement('div')
+  hoverDiv.classList.add('album-hover')
+  appendAlbumTitleInfo(hoverDiv, album)
+  appendAlbumArtistInfo(hoverDiv, album)
+
+  // hoverDiv.appendChild(titleInfo)
+  container.appendChild(hoverDiv)
+}
+
 var appendAlbumTitleInfo = function(container, album){
+  // var hoverDiv = document.createElement('div')
+  // hoverDiv.classList.add('album-hover')
+
   var titleInfo = document.createElement('p')
   titleInfo.innerText = 'title: ' + album.name
   container.appendChild(titleInfo)
+
+  // hoverDiv.appendChild(titleInfo)
+  // container.appendChild(hoverDiv)
 }
 
 
@@ -49,7 +63,7 @@ var appendAlbumArtistInfo = function(container, album){
     }
     artistString = artistString.substring(0, artistString.lastIndexOf(','))
   } else {
-    artistString = album.artists[0].name
+    artistString += album.artists[0].name
   }
   
   artistInfo.innerText = artistString
